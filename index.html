@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Gold Calculator</title>
+	<script type="text/javascript">
+		function calculate(){
+			 var pp=prompt("Please Enter a Gram");	
+			document.myForm.gram.value=pp;
+			
+			var Gram=(document.myForm.gram.value);
+			console.log(Gram);
+			var price=parseInt(document.myForm.price.value);
+			console.log(price);
+			var kyat=Math.floor(Gram/16.606);
+			console.log(kyat);
+			var pae=(Gram/16.606)-kyat;
+			var Pae=Math.floor(pae*16);
+			console.log(Pae);
+			var ywae=(pae*16)-Pae;
+			var Ywae=Math.floor(ywae*8);
+			console.log(Ywae);
+
+			document.myForm.kyat.value=kyat;
+			document.myForm.pae.value=Pae;
+			document.myForm.ywae.value=Ywae;
+
+			
+			var sale=(document.myForm.price.value);
+			var total=Math.floor(sale);
+			var amount=((Ywae/8)+(Pae/16)+kyat)*total
+			document.myForm.total.value=amount;
+			
+
+		}
+		
+	</script>
+</head>
+<body>
+<form name="myForm">
+	<fieldset><legend>Gold Calculator</legend>
+			  <label for>Gram</label>
+			  <input type="number" name="gram" id="gram"><br><br>
+				<label for="price">price</label>
+				<input type="number" name="price" id="price" value="1215000"><br><br>
+				<input type="button" value="calculate" onclick="calculate()"> <br><br>
+				<label for="kyat">Kyats</label>
+				<input type="number" name="kyat" id="ky"><br><br>
+				<label for="pae">Pae</label>
+				<input type="number" name="pae" id="pa"><br><br>
+				<label>Ywae</label>
+				<input type="number" name="ywae" id="yw"><br><br>
+				<label for="total">Total</label>
+				<input type="number" name="total" id="total">
+			</fieldset>
+			</form>
+
+</body>
+</html>
